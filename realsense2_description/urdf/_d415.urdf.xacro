@@ -12,7 +12,7 @@ aluminum peripherial evaluation case.
   <!--File includes-->
   <xacro:include filename="$(find realsense2_description)/urdf/_d415.gazebo.xacro" />
 
-  <xacro:macro name="sensor_d415" params="name:=camera parent *origin">
+  <xacro:macro name="sensor_d415" params="name:=rs_d415 topics_ns:=rs_d415 parent *origin publish_pointcloud:=true">
     <xacro:property name="M_PI" value="3.1415926535897931" />
 
     <!-- The following values are approximate, and the camera node
@@ -72,7 +72,7 @@ aluminum peripherial evaluation case.
       </collision>
       <inertial>
         <!-- The following are not reliable values, and should not be used for modeling -->
-        <mass value="0.564" />
+        <mass value="0.072" />
         <origin xyz="0 0 0" />
         <inertia ixx="0.003881243" ixy="0.0" ixz="0.0" iyy="0.000498940" iyz="0.0" izz="0.003879257" />
       </inertial>
@@ -139,7 +139,7 @@ aluminum peripherial evaluation case.
     <link name="${name}_color_optical_frame" />
 
     <!-- Realsense Gazebo Plugin -->
-    <xacro:gazebo_d415 camera_name="${name}" reference_link="${name}_link" topics_ns="${topics_ns}" depth_optical_frame="${name}_depth_optical_frame" color_optical_frame="${name}_color_optical_frame" infrared1_optical_frame="${name}_left_ir_optical_frame" infrared2_optical_frame="${name}_right_ir_optical_frame" publish_pointcloud="${publish_pointcloud}"/>
+    <xacro:gazebo_d415 camera_name="${name}" reference_link="${name}_link" topics_ns="${topics_ns}" depth_optical_frame="${name}_depth_optical_frame" color_optical_frame="${name}_color_optical_frame" infrared1_optical_frame="${name}_left_ir_optical_frame" infrared2_optical_frame="${name}_right_ir_optical_frame" publish_pointcloud="${publish_pointcloud}" />
 
   </xacro:macro>
 </robot>
