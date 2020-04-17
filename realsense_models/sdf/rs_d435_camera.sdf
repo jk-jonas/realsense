@@ -41,7 +41,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file://meshes/d435.dae</uri>
+            <uri>file:///home/developer/workspace/catkin_ws/src/ail/realsense/realsense2_description/meshes/d435.dae</uri>
           </mesh>
         </geometry>
         <material>
