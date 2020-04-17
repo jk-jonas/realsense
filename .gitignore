@@ -6,3 +6,6 @@
 .idea/
 .vs/
 *.json
+realsense_models/models/*/*.sdf
+realsense_models/sdf/*.sdf
+realsense_models/urdf/*.urdf
