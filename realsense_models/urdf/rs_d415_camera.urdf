@@ -25,7 +25,7 @@
       <origin rpy="1.57079632679 0 1.57079632679" xyz="0.00987 -0.02 0"/>
       <geometry>
         <!-- <box size="${d415_cam_width} ${d415_cam_height} ${d415_cam_depth}"/> -->
-        <mesh filename="package://realsense2_description/meshes/d415.stl"/>
+        <mesh filename="file:///home/developer/workspace/catkin_ws/src/ail/realsense/realsense2_description/meshes/d415.stl"/>
       </geometry>
       <material name="rs_d415_aluminum"/>
     </visual>
