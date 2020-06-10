@@ -9,7 +9,7 @@ This is the Gazebo URDF model for the Intel RealSense D435 camera
 
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:macro name="gazebo_d415" params="camera_name reference_link topics_ns depth_optical_frame color_optical_frame infrared1_optical_frame infrared2_optical_frame color_width:=1920 color_height:=1080 depth_width:=1280 depth_height:=720 disable_color:=false disable_depth:=false disable_ired:=true publish_pointcloud:=true">
+  <xacro:macro name="gazebo_d415" params="camera_name reference_link topics_ns depth_optical_frame color_optical_frame infrared1_optical_frame infrared2_optical_frame color_width:=1920 color_height:=1080 depth_width:=1280 depth_height:=720 disable_color:=false disable_depth:=false disable_ired:=true publish_pointcloud:=true update_rate:=30">
 
     <!-- Load parameters to model's main link-->
     <xacro:property name="deg_to_rad" value="0.01745329251994329577" />
@@ -47,7 +47,7 @@ This is the Gazebo URDF model for the Intel RealSense D435 camera
             </noise>
           </camera>
           <always_on>1</always_on>
-          <update_rate>30</update_rate>
+          <update_rate>${update_rate}</update_rate>
           <visualize>1</visualize>
         </sensor>
       </xacro:unless>
@@ -72,7 +72,7 @@ This is the Gazebo URDF model for the Intel RealSense D435 camera
             </noise>
           </camera>
           <always_on>1</always_on>
-          <update_rate>90</update_rate>
+          <update_rate>${update_rate}</update_rate>
           <visualize>0</visualize>
         </sensor>
         <sensor name="${camera_name}ired2" type="camera">
@@ -94,7 +94,7 @@ This is the Gazebo URDF model for the Intel RealSense D435 camera
             </noise>
           </camera>
           <always_on>1</always_on>
-          <update_rate>90</update_rate>
+          <update_rate>${update_rate}</update_rate>
           <visualize>0</visualize>
         </sensor>
       </xacro:unless>
@@ -118,7 +118,7 @@ This is the Gazebo URDF model for the Intel RealSense D435 camera
             </noise>
           </camera>
           <always_on>1</always_on>
-          <update_rate>90</update_rate>
+          <update_rate>${update_rate}</update_rate>
           <visualize>0</visualize>
         </sensor>
       </xacro:unless>
@@ -130,9 +130,9 @@ This is the Gazebo URDF model for the Intel RealSense D435 camera
         <disableColor>${disable_color}</disableColor>
         <disableDepth>${disable_depth}</disableDepth>
         <disableIred>${disable_ired}</disableIred>
-        <depthUpdateRate>60.0</depthUpdateRate>
-        <colorUpdateRate>60.0</colorUpdateRate>
-        <infraredUpdateRate>60.0</infraredUpdateRate>
+        <depthUpdateRate>${update_rate}</depthUpdateRate>
+        <colorUpdateRate>${update_rate}</colorUpdateRate>
+        <infraredUpdateRate>${update_rate}</infraredUpdateRate>
         <depthTopicName>depth/color/image_raw</depthTopicName>
         <depthCameraInfoTopicName>depth/color/camera_info</depthCameraInfoTopicName>
         <colorTopicName>color/image_raw</colorTopicName>

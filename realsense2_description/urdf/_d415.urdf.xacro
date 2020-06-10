@@ -12,7 +12,7 @@ aluminum peripherial evaluation case.
   <!--File includes-->
   <xacro:include filename="$(find realsense2_description)/urdf/_d415.gazebo.xacro" />
 
-  <xacro:macro name="sensor_d415" params="name:=camera_rs_d415 topics_ns:=camera_rs_d415 parent *origin color_width:=1920 color_height:=1080 depth_width:=1280 depth_height:=720 disable_color:=false disable_depth:=false disable_ired:=true publish_pointcloud:=true">
+  <xacro:macro name="sensor_d415" params="name:=camera_rs_d415 topics_ns:=camera_rs_d415 parent *origin color_width:=1920 color_height:=1080 depth_width:=1280 depth_height:=720 disable_color:=false disable_depth:=false disable_ired:=true publish_pointcloud:=true update_rate:=30">
     <xacro:property name="M_PI" value="3.1415926535897931" />
 
     <!-- The following values are approximate, and the camera node
@@ -139,7 +139,7 @@ aluminum peripherial evaluation case.
     <link name="${name}_color_optical_frame" />
 
     <!-- Realsense Gazebo Plugin -->
-    <xacro:gazebo_d415 camera_name="${name}" reference_link="${name}_link" topics_ns="${topics_ns}" depth_optical_frame="${name}_depth_optical_frame" color_optical_frame="${name}_color_optical_frame" infrared1_optical_frame="${name}_left_ir_optical_frame" infrared2_optical_frame="${name}_right_ir_optical_frame" color_width="${color_width}" color_height="${color_height}" depth_width="${depth_width}" depth_height="${depth_height}" disable_color="${disable_color}" disable_depth="${disable_depth}" disable_ired="${disable_ired}" publish_pointcloud="${publish_pointcloud}" />
+    <xacro:gazebo_d415 camera_name="${name}" reference_link="${name}_link" topics_ns="${topics_ns}" depth_optical_frame="${name}_depth_optical_frame" color_optical_frame="${name}_color_optical_frame" infrared1_optical_frame="${name}_left_ir_optical_frame" infrared2_optical_frame="${name}_right_ir_optical_frame" color_width="${color_width}" color_height="${color_height}" depth_width="${depth_width}" depth_height="${depth_height}" disable_color="${disable_color}" disable_depth="${disable_depth}" disable_ired="${disable_ired}" publish_pointcloud="${publish_pointcloud}" update_rate="${update_rate}" />
 
   </xacro:macro>
 </robot>
