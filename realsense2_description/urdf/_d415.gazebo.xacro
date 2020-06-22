@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+<?xml version="1.0"?>
 
 <!--
 License: Apache 2.0. See LICENSE file in root directory.
@@ -30,7 +30,8 @@ This is the Gazebo URDF model for the Intel RealSense D435 camera
       <xacro:unless value="${disable_color}">
         <sensor name="${camera_name}color" type="camera">
           <camera name="${camera_name}">
-            <horizontal_fov>${69.0*deg_to_rad}</horizontal_fov>
+            <!-- 69. is the original fov -->
+            <horizontal_fov>${87.0*deg_to_rad}</horizontal_fov>
             <image>
               <width>${color_width}</width>
               <height>${color_height}</height>
@@ -51,7 +52,7 @@ This is the Gazebo URDF model for the Intel RealSense D435 camera
           <visualize>1</visualize>
         </sensor>
       </xacro:unless>
-      
+
       <xacro:unless value="${disable_ired}">
         <sensor name="${camera_name}ired1" type="camera">
           <camera name="${camera_name}">
